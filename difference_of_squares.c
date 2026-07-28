@@ -1,6 +1,6 @@
 #include "difference_of_squares.h"
 
-unsigned int sum_of_squares(unsigned int number) {
+unsigned int square_of_sum(unsigned int number) {
     int total = 0;
     for (number = number; number > 0; number--) {
         total += number;
@@ -9,7 +9,7 @@ unsigned int sum_of_squares(unsigned int number) {
     return squared_total;
     
 }
-unsigned int square_of_sum(unsigned int number) {
+unsigned int sum_of_squares(unsigned int number) {
     int total = 0;
     for (number = number; number > 0; number--) {
         total += number * number;
