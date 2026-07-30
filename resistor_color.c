@@ -6,7 +6,7 @@ int lookup (resistor_band_t color) {
 }
 
 const resistor_band_t* list(void) {
-     const resistor_band_t all_colors[] = {
+     static const resistor_band_t all_colors[] = {
     black,
     brown,
     red,
@@ -18,5 +18,6 @@ const resistor_band_t* list(void) {
     grey,
     white
     };
-   
+
+    return all_colors;
 }
