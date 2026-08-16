@@ -1,17 +1,22 @@
 #include "collatz_conjecture.h"
 
 int steps(int start) {
-    int count = 0;
-    while (start != 1) {
-    if ( start % 2 == 0) {
-        int start = start / 2;
-        count += 1;
-        
-    } else {
-        int start = (start * 3) + 1;
-        count += 1;
+    int step = 0;
+    if (start < 1) {
+        return -1;
     }
-
-    }    
-    return count;
+    while (start > 1) {
+        if (start % 2 == 0){
+            start = start / 2;
+            step ++;
+        }
+    
+        else {
+            start = (start * 3) + 1;
+            step ++;
+            
+        }
+    }
+    return step;
+        
 }
