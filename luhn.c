@@ -4,35 +4,44 @@
 bool luhn(const char *num) {
     int i = 0;
     int total = 0;
-    int length = strlen(num) - 1;
+    int count = 0;
+    int length1 = strlen(num) - 1;
     
-    if (length <= 1) {
-        return false;
-    }
+ 
     
     while (num[i] != '\0') {
-        if (num[i] != ' ' || sizeof(num[i]) != 8){
+        if (num[i] != ' ' && (num[i] < '0' || num[i] > '9')){
          return false; 
-         
-        } 
+         } 
     i++;
     }
-    for (int x = length; x >= 0; x--) {
-        int digit = num[x] - '0';
-        if (x % 2 == 0) {
-            if (num[x] * 2 >= 9) {
+    for (int length = length1; length >=0; length--) {
+        int digit = num[length] - '0';
+        if (num[length] == ' ') {
+        }
+        if (count % 2 == 1) {
+            if (digit * 2 > 9) {
                 total += (digit * 2) - 9;
+                count++;
                 } else {
                     total += digit * 2;
+                    count++;
             }
         } else {
             total += digit;
+            count++;
         }
     }
-        return total;
+        if (count <= 1) {
+            return false;
+        } else {
+            if (total % 10 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     // index:  0123456789tettffssent
     // string: 4539 3195 0343 6467\0
-
-        
