@@ -18,9 +18,10 @@ bool luhn(const char *num) {
     for (int length = length1; length >=0; length--) {
         int digit = num[length] - '0';
         if (num[length] == ' ') {
+            continue;
         }
         if (count % 2 == 1) {
-            if (digit * 2 > 9) {
+            if ((digit * 2) > 9) {
                 total += (digit * 2) - 9;
                 count++;
                 } else {
